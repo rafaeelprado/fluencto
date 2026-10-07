@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fluencto — Voice AI Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">◉</span>
+      <div>
+        <h1>Fluencto</h1>
+        <p>Copiloto de atendimento por voz · Clínica Vitalis</p>
+      </div>
+    </div>
+    <span id="health" class="pill">verificando…</span>
+  </header>
+
+  <main>
+    <section class="call">
+      <div class="stage">
+        <div id="orb" class="orb idle"><div class="ring"></div><div class="core"></div></div>
+        <p id="stateLabel" class="state">Pronto para ligar</p>
+        <button id="callBtn" class="btn primary">Iniciar chamada</button>
+      </div>
+
+      <div id="transcript" class="transcript" aria-live="polite">
+        <p class="empty">A conversa aparece aqui. Tente: “Quero marcar uma consulta com dermatologista na quinta à tarde.”</p>
+      </div>
+
+      <form id="textForm" class="textform">
+        <input id="textInput" placeholder="Ou digite (modo debug, sem microfone)…" autocomplete="off" disabled />
+        <button class="btn" disabled id="textBtn">Enviar</button>
+      </form>
+    </section>
+
+    <aside class="panel">
+      <div class="card">
+        <div class="card-head">
+          <h2>Latência voz-a-voz</h2>
+          <span class="muted" id="latAvg">média —</span>
+        </div>
+        <div class="big"><span id="latBig">—</span><small>ms</small></div>
+        <p class="muted small">Fim da sua fala → primeiro áudio da resposta. Meta: &lt; 1500 ms.</p>
+        <div id="latBar" class="stack"></div>
+        <div class="legend">
+          <span><i class="c-end"></i>Fim de turno (STT)</span>
+          <span><i class="c-llm"></i>LLM 1º token</span>
+          <span><i class="c-sent"></i>1ª frase</span>
+          <span><i class="c-tts"></i>TTS 1º áudio</span>
+        </div>
+        <table class="turns"><thead><tr><th>#</th><th>STT</th><th>LLM</th><th>TTS</th><th>Voz→voz</th><th>Cliente</th></tr></thead><tbody id="turnRows"></tbody></table>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Tool calls</h2></div>
+        <ul id="tools" class="tools"><li class="muted small">Nenhuma chamada ainda.</li></ul>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Agenda (SQLite)</h2><button id="refreshAgenda" class="link">atualizar</button></div>
+        <table class="agenda"><tbody id="agenda"></tbody></table>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>
