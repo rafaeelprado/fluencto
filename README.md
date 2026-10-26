@@ -1,5 +1,7 @@
 # Fluencto — Voice AI Agent em tempo real
 
+🇧🇷 **Português** · 🇺🇸 [English](README.en.md)
+
 Recepcionista de voz para uma clínica (fictícia, "Clínica Vitalis"). Roda no navegador, entende o paciente, consulta uma base local (SQLite) via **tool calling** e responde com voz natural — meta: **< 1,5 s voz-a-voz**.
 
 ```
