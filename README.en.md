@@ -2,6 +2,10 @@
 
 🇺🇸 **English** · 🇧🇷 [Português](README.md)
 
+![Fluencto: voice scheduling with real-time interruption](docs/demo-fluencto.gif)
+
+*Demo recorded with simulated STT, LLM and TTS (no API keys). The orchestration, the SQLite database and the UI are the real ones. Voice-to-voice latency has not been measured yet.*
+
 A voice receptionist for a (fictional) clinic, "Clínica Vitalis". It runs in the browser, understands the patient, queries a local SQLite database through **tool calling**, and answers with natural speech. Target: **< 1.5 s voice-to-voice**.
 
 ```
