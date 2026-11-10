@@ -2,6 +2,10 @@
 
 🇧🇷 **Português** · 🇺🇸 [English](README.en.md)
 
+![Fluencto: agendamento por voz com interrupcao em tempo real](docs/demo-fluencto.gif)
+
+*Demo gravada com STT, LLM e TTS simulados (sem chaves de API). A orquestracao, o banco SQLite e a interface sao os reais. A latencia voz-a-voz ainda nao foi medida.*
+
 Recepcionista de voz para uma clínica (fictícia, "Clínica Vitalis"). Roda no navegador, entende o paciente, consulta uma base local (SQLite) via **tool calling** e responde com voz natural — meta: **< 1,5 s voz-a-voz**.
 
 ```
